@@ -22,12 +22,6 @@ A modern, full-stack blog application built with Next.js, featuring user authent
   - **User**: Can create, edit, and delete only their own posts
   - **Public**: Anyone can view published posts
 
-### Bonus Features
-- **Search & Filter**: Search posts by title/content
-- **Pagination**: Efficient post listing with pagination
-- **Responsive Design**: Modern UI built with Tailwind CSS
-- **Real-time Updates**: Dynamic content updates
-
 ## 🛠️ Tech Stack
 
 - **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS
@@ -69,11 +63,22 @@ JWT_SECRET=your-super-secret-jwt-key-here
 NODE_ENV=development
 ```
 
-### 4. Database Setup
+### 4. Add Admin
+By default admin credentials are:
+  email: 'testadmin@blogapp.com'
+  password: 'admin123456'
+If you want to change the credentials navigate to
+  `/scripts/create-admin.js`
+  Change the details in the code and run the code below.
+```bash
+npm run create-admin
+```
+
+### 5. Database Setup
 - **Local MongoDB**: Ensure MongoDB is running locally
 - **MongoDB Atlas**: Use your Atlas connection string
 
-### 5. Run the Application
+### 6. Run the Application
 ```bash
 # Development mode
 npm run dev
@@ -154,121 +159,5 @@ blog-app/
   updatedAt: Date         // Last update timestamp
 }
 ```
-
-## 🚀 Deployment
-
-### Frontend Deployment (Vercel/Netlify)
-1. Connect your GitHub repository
-2. Set environment variables in deployment platform
-3. Deploy automatically on push to main branch
-
-### Backend Deployment
-- **Vercel**: Automatic deployment with Next.js API routes
-- **Netlify**: Functions for API routes
-- **Railway/Render**: Alternative deployment options
-
-### Database Deployment
-- **MongoDB Atlas**: Free tier available
-- **Railway**: Managed MongoDB instances
-- **Self-hosted**: Local or VPS deployment
-
-## 🔧 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-
-### Posts
-- `GET /api/posts` - Get all posts (with pagination/search)
-- `POST /api/posts` - Create new post (authenticated)
-- `GET /api/posts/[id]` - Get specific post
-- `PUT /api/posts/[id]` - Update post (authorized users)
-- `DELETE /api/posts/[id]` - Delete post (authorized users)
-
-### User Management
-- `GET /api/user/profile` - Get user profile (authenticated)
-- `PUT /api/user/profile` - Update user profile (authenticated)
-
-### Admin (Admin users only)
-- `GET /api/admin/users` - Get all users
-- `GET /api/admin/posts` - Get all posts with author details
-
-## 🎨 Customization
-
-### Styling
-- Modify `tailwind.config.js` for theme customization
-- Update `src/app/globals.css` for global styles
-- Component-specific styles in individual components
-
-### Features
-- Add new user roles in `src/models/User.ts`
-- Extend post model with additional fields
-- Implement commenting system
-- Add image upload functionality
-
-## 🧪 Testing
-
-```bash
-# Run tests (if configured)
-npm test
-
-# Run linting
-npm run lint
-
-# Type checking
-npm run type-check
-```
-
-## 📝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **MongoDB Connection Error**
-   - Verify MongoDB is running
-   - Check connection string in `.env.local`
-   - Ensure network access for Atlas
-
-2. **JWT Authentication Issues**
-   - Verify `JWT_SECRET` is set
-   - Check token expiration
-   - Clear browser cookies
-
-3. **Build Errors**
-   - Clear `.next` folder
-   - Reinstall dependencies
-   - Check TypeScript errors
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Support
-
-For support and questions:
-- Create an issue in the repository
-- Check the troubleshooting section
-- Review the API documentation
-
-## 🎯 Roadmap
-
-- [ ] Comment system implementation
-- [ ] Image upload and management
-- [ ] Email notifications
-- [ ] Advanced search filters
-- [ ] User following system
-- [ ] API rate limiting
-- [ ] Unit and integration tests
-- [ ] Docker containerization
-
 ---
-
 **Happy Blogging! 🚀**
