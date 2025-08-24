@@ -67,7 +67,6 @@ NODE_ENV=development
 By default admin credentials are:
 - email: 'testadmin@blogapp.com'
 - password: 'admin123456'<br>
-
 If you want to change the credentials navigate to `/scripts/create-admin.js` and change the details in the code and run the code below.
 ```bash
 npm run create-admin
