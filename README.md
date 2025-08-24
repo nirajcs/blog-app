@@ -41,7 +41,7 @@ A modern, full-stack blog application built with Next.js, featuring user authent
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/nirajcs/blog-app.git
 cd blog-app
 ```
 
