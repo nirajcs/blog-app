@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
+
+export const dynamic = 'force-dynamic';
 
 export default function CreatePost() {
   const [title, setTitle] = useState('');
@@ -13,9 +15,13 @@ export default function CreatePost() {
   const { isAuthenticated } = useAuth();
   const router = useRouter();
 
-  // Redirect if not authenticated
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push('/login');
+    }
+  }, [isAuthenticated, router]);
+
   if (!isAuthenticated) {
-    router.push('/login');
     return null;
   }
 
